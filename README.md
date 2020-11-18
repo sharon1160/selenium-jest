@@ -55,9 +55,17 @@ Configuramos de la siguiente manera nuestro archivo package.json
   "scripts": {
     "test": "jest"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sharon1160/selenium-jest.git"
+  },
   "keywords": [],
   "author": "SharonChR",
   "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sharon1160/selenium-jest/issues"
+  },
+  "homepage": "https://github.com/sharon1160/selenium-jest#readme",
   "devDependencies": {
     "chromedriver": "^87.0.0",
     "geckodriver": "^1.20.0",
@@ -65,6 +73,7 @@ Configuramos de la siguiente manera nuestro archivo package.json
     "selenium-webdriver": "^4.0.0-alpha.7"
   }
 }
+
 ```
 
 Creamos nuestro archivo de configuración jest.config.js y colocamos el siguiente contenido
