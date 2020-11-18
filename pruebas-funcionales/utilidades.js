@@ -20,10 +20,10 @@ async function querySelector(selector, driver) {
       waitUntilTime
     )
     return await driver.wait(until.elementIsVisible(el), waitUntilTime)
-  }
+}
 
 module.exports = {
     querySelector,
     getElementById,
     getElementByXPath
-  }
+}
