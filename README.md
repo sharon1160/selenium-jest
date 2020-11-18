@@ -180,7 +180,7 @@ describe('Calculando porcentaje', () => {
   });
 });
 ```
-Y creamos el archivo utilidades.js, este contendrá funciones de utilidad, y  son las siguientes : 
+Y creamos el archivo utilidades.js, este contendrá funciones de utilidad : 
 
 - querySelector
 - getElementById
