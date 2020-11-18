@@ -1,6 +1,6 @@
 # Jest + Selenium WebDriver
 
-<p align="center"><img width="40%" src="imagenes/logo.jpeg" /></p>
+<p align="center"><img width="50%" src="imagenes/logo.jpeg" /></p>
 
 --------------------------------------------------------------------------------
 
@@ -24,7 +24,7 @@ Creamos el archivo package.json correiendo el siguiente comando
 $ npm init -y
 ```
 
-<p align="center"><img width="40%" src="imagenes/init.png" /></p>
+<p align="center"><img width="60%" src="imagenes/init.png" /></p>
 
 Luego, instalamos localmente en nuestro proyecto lo siguiente
 
