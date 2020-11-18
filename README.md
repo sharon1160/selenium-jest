@@ -56,7 +56,7 @@ Configuramos de la siguiente manera nuestro archivo package.json
     "test": "jest"
   },
   "keywords": [],
-  "author": "",
+  "author": "SharonChR",
   "license": "ISC",
   "devDependencies": {
     "chromedriver": "^87.0.0",
