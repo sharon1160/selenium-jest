@@ -1,6 +1,6 @@
 module.exports = {
-    bail: false,
-    verbose: true,
+    testPathIgnorePatterns: ['<rootDir>/node_modules/'],
     testRegex: '(/test/.*|(\\.|/)(test|spec))\\.jsx?$',
-    testPathIgnorePatterns: ['<rootDir>/node_modules/']
+    bail: false,
+    verbose: true
 };
