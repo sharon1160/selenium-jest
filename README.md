@@ -40,9 +40,9 @@ $ npm install --save-dev geckodriver
 $ npm install --save-dev selenium-webdriver
 $ npm install --save-dev jest
 ```
-<p align="center"><img width="60%" src="imagenes/gechrome.png" /></p>
+<p align="center"><img width="70%" src="imagenes/gechrome.png" /></p>
 
-<p align="center"><img width="60%" src="imagenes/jestselenium.png" /></p>
+<p align="center"><img width="70%" src="imagenes/jestselenium.png" /></p>
 
 Configuramos de la siguiente manera nuestro archivo package.json
 
@@ -222,5 +222,5 @@ Finalmente, ejecutamos las pruebas con el siguiente comando
 ```bash
 $ npm run test
 ```
-<p align="center"><img width="60%" src="imagenes/runtest.png" /></p>
+<p align="center"><img width="70%" src="imagenes/runtest.png" /></p>
 
