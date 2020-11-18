@@ -86,7 +86,7 @@ module.exports = {
     verbose: true
 };
 ```
-Realizaremos pruebas en la página web [Calculator.net](https://www.calculator.net/); para esto, creamos el directorio pruebas-funcionales, dentro de este directorio implementaremos nuestras pruebas funcionales con la extension .spec.js; jest solo realizará pruebas con esa extensión, tal y como esta definido en nuestro archivo jest.config.js .
+Realizaremos pruebas en la página web [Calculator.net](https://www.calculator.net/); para esto, creamos el directorio pruebas-funcionales, dentro de este directorio implementaremos nuestras pruebas funcionales con la extension .spec.js; Jest solo leerá archivos con esa extensión, tal y como esta definido en nuestro archivo jest.config.js .
 
 - navegacion.spec.js : Pruebas de navegación en Calculator.net (clicks)
 
