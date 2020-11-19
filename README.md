@@ -88,50 +88,7 @@ module.exports = {
 ```
 Realizaremos pruebas en la página web [Calculator.net](https://www.calculator.net/); para esto, creamos el directorio pruebas-funcionales, dentro de este directorio implementaremos nuestras pruebas funcionales con la extension .spec.js; Jest solo leerá archivos con esa extensión, tal y como esta definido en nuestro archivo jest.config.js .
 
-- navegacion.spec.js : Pruebas de navegación en Calculator.net (clicks)
-
-```javascript
-const { Builder } = require('selenium-webdriver')
-const { getElementByXPath } = require('./utilidades')
-require('selenium-webdriver/chrome')
-require('selenium-webdriver/firefox')
-require('chromedriver')
-require('geckodriver')
-
-let driver
-
-jasmine.DEFAULT_TIMEOUT_INTERVAL = 1000 * 60 * 5
-
-beforeAll(async () => {
-  driver = await new Builder().forBrowser('firefox').build()
-})
-
-const paginaweb = 'https://www.calculator.net/'
-var el
-
-describe('Sitio web', () => {
-  // Carga contenido de la pagina principal
-  test('Carga de pagina principal', async () => {
-    await driver.get(paginaweb)
-  });
-});
-
-describe('Enlaces', () => {
-  test('Sitio: Math Calculators y Percentage Calculator', async () => {
-    // Click en Math Calculators
-    el = await getElementByXPath('/html/body/div[4]/div/table/tbody/tr/td[3]/div[2]/a', driver)
-    await el.click()
-
-    // Click en Percent Calculator
-    el = await getElementByXPath('/html/body/div[3]/div[1]/table[2]/tbody/tr/td/div[3]/a', driver)
-    await el.click()
-  });
-});
-
-
-afterAll(async () => driver.quit())
-```
-- calculadorPorcentaje.spec.js : Pruebas con entradas y resultado esperado en [Percentage Calculator](https://www.calculator.net/percent-calculator.html).
+- Porcentaje.spec.js : Pruebas con entradas y resultado esperado en [Percentage Calculator](https://www.calculator.net/percent-calculator.html).
 
 ```javascript
 const { Builder } = require('selenium-webdriver')
@@ -153,30 +110,140 @@ afterAll(async () => driver.quit())
 
 const rootURL = 'https://www.calculator.net/percent-calculator.html';
 var a,b,boton,resultado
+var a2,b2,boton2,resultado2
+var a3,b3,boton3,resultado3
+var a4,b4,boton4,resultado4
+var a5,b5,boton5,resultado5
 
-describe('Calculando porcentaje', () => {
+describe('Percentage Calculator 01', () => {
   test('Página principal', async () => {
     await driver.get(rootURL)
   });
 
-  test('Percentage Calculator', async () => {
-    // Asegura que el id haya terminado de cargar
+  test('Porcentaje y numero válidos', async () => {
+    // Enter  a value in the first number of the percent Calculator
     a = await getElementById('cpar1', driver);
     await a.sendKeys('10');
     
-    // Asegura que el id haya terminado de cargar
+    // Enter a value in the second number of the percent Calculator
     b = await getElementById('cpar2', driver);
-    await b.sendKeys('50');
+    await b.sendKeys('80');
 
-    // Asegura que el xpath haya terminado de cargar
+    // Click Calculate Button
     boton = await getElementByXPath('/html/body/div[3]/div[1]/table[1]/tbody/tr[2]/td/input[2]', driver)
     await boton.click()
 
-    // Asegura que el xpath haya terminado de cargar
+    // Compare expected result with current result
     resultado = await getElementByXPath('/html/body/div[3]/div[1]/p[2]/font/b', driver)
     const actual = await resultado.getText()
-    const expected = '5'
+    const expected = '8'
     expect(actual).toEqual(expected)
+  });
+
+});
+
+describe('Percentage Calculator 02', () => {
+  test('Página principal', async () => {
+    await driver.get(rootURL)
+  });
+
+  test('Porcentaje inválido y numero válido', async () => {
+    // Enter  a value in the first number of the percent Calculator
+    a2 = await getElementById('cpar1', driver);
+    await a2.sendKeys('abc');
+    
+    // Enter a value in the second number of the percent Calculator
+    b2 = await getElementById('cpar2', driver);
+    await b2.sendKeys('80');
+
+    // Click Calculate Button
+    boton2 = await getElementByXPath('/html/body/div[3]/div[1]/table[1]/tbody/tr[2]/td/input[2]', driver)
+    await boton2.click()
+
+    // Compare expected result with current result
+    resultado2 = await getElementByXPath('/html/body/div[3]/div[1]/p[2]/font', driver)
+    const actual2 = await resultado2.getText()
+    const expected2 = 'Please provide two numeric values in any fields below.'
+    expect(actual2).toEqual(expected2)
+  });
+
+});
+
+describe('Percentage Calculator 03', () => {
+  test('Página principal', async () => {
+    await driver.get(rootURL)
+  });
+
+  test('Porcentaje válido y numero inválido', async () => {
+    // Enter  a value in the first number of the percent Calculator
+    a3 = await getElementById('cpar1', driver);
+    await a3.sendKeys('10');
+    
+    // Enter a value in the second number of the percent Calculator
+    b3 = await getElementById('cpar2', driver);
+    await b3.sendKeys('xyz');
+
+    // Click Calculate Button
+    boton3 = await getElementByXPath('/html/body/div[3]/div[1]/table[1]/tbody/tr[2]/td/input[2]', driver)
+    await boton3.click()
+
+    // Compare expected result with current result
+    resultado3 = await getElementByXPath('/html/body/div[3]/div[1]/p[2]/font', driver)
+    const actual3 = await resultado3.getText()
+    const expected3 = 'Please provide two numeric values in any fields below.'
+    expect(actual3).toEqual(expected3)
+  });
+});
+
+describe('Percentage Calculator 04', () => {
+  test('Página principal', async () => {
+    await driver.get(rootURL)
+  });
+
+  test('Porcentaje vacio y numero válido', async () => {
+    // Enter  a value in the first number of the percent Calculator
+    a4 = await getElementById('cpar1', driver);
+    await a4.sendKeys('');
+    
+    // Enter a value in the second number of the percent Calculator
+    b4 = await getElementById('cpar2', driver);
+    await b4.sendKeys('80');
+
+    // Click Calculate Button
+    boton4 = await getElementByXPath('/html/body/div[3]/div[1]/table[1]/tbody/tr[2]/td/input[2]', driver)
+    await boton4.click()
+
+    // Compare expected result with current result
+    resultado4 = await getElementByXPath('/html/body/div[3]/div[1]/p[2]/font', driver)
+    const actual4 = await resultado4.getText()
+    const expected4 = 'Please provide two numeric values in any fields below.'
+    expect(actual4).toEqual(expected4)
+  });
+});
+
+describe('Percentage Calculator 05', () => {
+  test('Página principal', async () => {
+    await driver.get(rootURL)
+  });
+
+  test('Porcentaje válido y numero vacio', async () => {
+    // Enter  a value in the first number of the percent Calculator
+    a5 = await getElementById('cpar1', driver);
+    await a5.sendKeys('10');
+    
+    // Enter a value in the second number of the percent Calculator
+    b5 = await getElementById('cpar2', driver);
+    await b5.sendKeys('');
+
+    // Click Calculate Button
+    boton5 = await getElementByXPath('/html/body/div[3]/div[1]/table[1]/tbody/tr[2]/td/input[2]', driver)
+    await boton5.click()
+
+    // Compare expected result with current result
+    resultado5 = await getElementByXPath('/html/body/div[3]/div[1]/p[2]/font', driver)
+    const actual5 = await resultado5.getText()
+    const expected5 = 'Please provide two numeric values in any fields below.'
+    expect(actual5).toEqual(expected5)
   });
 });
 ```
@@ -222,5 +289,5 @@ Finalmente, ejecutamos las pruebas con el siguiente comando.
 ```bash
 $ npm run test
 ```
-<p align="center"><img width="70%" src="imagenes/runtest.png" /></p>
+<p align="center"><img width="70%" src="imagenes/runtest2.png" /></p>
 
