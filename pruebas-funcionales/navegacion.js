@@ -29,8 +29,8 @@ describe('Enlaces', () => {
     el = await getElementByXPath('/html/body/div[4]/div/table/tbody/tr/td[3]/div[2]/a', driver)
     await el.click()
 
-    // Click en Percent Calculator
-    el = await getElementByXPath('/html/body/div[3]/div[1]/table[2]/tbody/tr/td/div[3]/a', driver)
+    // Click en Percentage Calculator
+    el = await getElementByXPath('/html/body/div[3]/div[1]/table[1]/tbody/tr[1]/td[4]/b/input', driver)
     await el.click()
   });
 });
