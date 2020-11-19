@@ -1,6 +1,6 @@
 # Jest + Selenium WebDriver
 
-<p align="center"><img width="40%" src="imagenes/logo.jpeg" /></p>
+<p align="center"><img width="50%" src="imagenes/logo.jpeg" /></p>
 
 --------------------------------------------------------------------------------
 
@@ -12,21 +12,21 @@ Antes de comenzar, debemos tener instalado Node.js y su gestor de paquetes, npm.
 
 ## Automatización de pruebas funcionales
 
-Creamos un directorio con el nombre selenium-jest y entramos al directorio
+Creamos un directorio con el nombre selenium-jest y entramos al directorio.
 
 ```bash
 $ mkdir selenium-jest
 $ cd selenium-jest
 ```
-Creamos el archivo package.json correiendo el siguiente comando
+Creamos el archivo package.json corriendo el siguiente comando.
 
 ```bash
 $ npm init -y
 ```
 
-//imagen 
+<p align="center"><img width="60%" src="imagenes/init.png" /></p>
 
-Luego, instalamos localmente en nuestro proyecto lo siguiente
+Luego, instalamos localmente en nuestro proyecto lo siguiente.
 
 - chromedriver
 - geckodriver
@@ -40,9 +40,11 @@ $ npm install --save-dev geckodriver
 $ npm install --save-dev selenium-webdriver
 $ npm install --save-dev jest
 ```
-//imagen
+<p align="center"><img width="70%" src="imagenes/gechrome.png" /></p>
 
-Configuramos de la siguiente manera nuestro archivo package.json
+<p align="center"><img width="70%" src="imagenes/jestselenium.png" /></p>
+
+Configuramos de la siguiente manera nuestro archivo package.json .
 
 ```json
 {
@@ -53,9 +55,17 @@ Configuramos de la siguiente manera nuestro archivo package.json
   "scripts": {
     "test": "jest"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sharon1160/selenium-jest.git"
+  },
   "keywords": [],
-  "author": "",
+  "author": "SharonChR",
   "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sharon1160/selenium-jest/issues"
+  },
+  "homepage": "https://github.com/sharon1160/selenium-jest#readme",
   "devDependencies": {
     "chromedriver": "^87.0.0",
     "geckodriver": "^1.20.0",
@@ -63,9 +73,10 @@ Configuramos de la siguiente manera nuestro archivo package.json
     "selenium-webdriver": "^4.0.0-alpha.7"
   }
 }
+
 ```
 
-Creamos nuestro archivo de configuración jest.config.js y colocamos el siguiente contenido
+Creamos nuestro archivo de configuración jest.config.js y colocamos el siguiente contenido.
 
 ```javascript
 module.exports = {
@@ -75,7 +86,7 @@ module.exports = {
     verbose: true
 };
 ```
-Realizaremos pruebas en la página web [Calculator.net](https://www.calculator.net/); para esto, creamos el directorio pruebas-funcionales, dentro de este directorio implementaremos nuestras pruebas funcionales con la extension .spec.js; jest solo realizará pruebas con esa extensión, tal y como esta definido en nuestro archivo jest.config.js
+Realizaremos pruebas en la página web [Calculator.net](https://www.calculator.net/); para esto, creamos el directorio pruebas-funcionales, dentro de este directorio implementaremos nuestras pruebas funcionales con la extension .spec.js; Jest solo leerá archivos con esa extensión, tal y como esta definido en nuestro archivo jest.config.js .
 
 - navegacion.spec.js : Pruebas de navegación en Calculator.net (clicks)
 
@@ -120,7 +131,7 @@ describe('Enlaces', () => {
 
 afterAll(async () => driver.quit())
 ```
-- calculadorPorcentaje.spec.js : Pruebas con entradas y resultado esperado en [Percentage Calculator](https://www.calculator.net/percent-calculator.html)
+- calculadorPorcentaje.spec.js : Pruebas con entradas y resultado esperado en [Percentage Calculator](https://www.calculator.net/percent-calculator.html).
 
 ```javascript
 const { Builder } = require('selenium-webdriver')
@@ -169,7 +180,7 @@ describe('Calculando porcentaje', () => {
   });
 });
 ```
-Y crearemos el archivo utilidades.js, este contendrá funciones de utilidad 
+Y creamos el archivo utilidades.js, este contendrá funciones de utilidad : 
 
 - querySelector
 - getElementById
@@ -206,10 +217,10 @@ module.exports = {
     getElementByXPath
 }
 ```
-Finalmente, ejecutamos las pruebas con el siguiente comando
+Finalmente, ejecutamos las pruebas con el siguiente comando.
 
 ```bash
 $ npm run test
 ```
-//imagen
+<p align="center"><img width="70%" src="imagenes/runtest.png" /></p>
 
