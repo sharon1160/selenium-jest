@@ -10,6 +10,12 @@ Antes de comenzar, debemos tener instalado Node.js y su gestor de paquetes, npm.
 - [Node.js](https://nodejs.org/es/)
 - [npm](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm)
 
+## Diseño de los casos de prueba
+
+Diseño de los casos de prueba para la funcionalidad "Percentage Calculator" ([Diseño-de-casos-de-prueba](https://docs.google.com/spreadsheets/d/1wwuniNtFZw4hUCLiqm30Jf7h0U16iarQPHLH3FTX5WU/edit?usp=sharing)
+
+<p align="center"><img width="60%" src="imagenes/casos-de-prueba.png" /></p>
+
 ## Automatización de pruebas funcionales
 
 Creamos un directorio con el nombre selenium-jest y entramos al directorio.
